@@ -58,7 +58,15 @@ body, h1, h2, h3, h4, p, li {
 
 .side-bar {
     background-color: var(--side-bar-background);
+    display: grid;
 }
+
+.static {
+    display: grid;
+    justify-items: center;
+}
+
+
 
 .project {
     background-color: var(--project-background);
