@@ -5,11 +5,20 @@
     src: url('./assets/Kalam/Kalam-Light.ttf') format('truetype');
   }
 
+@font-face {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    src: url('./assets/Plus_Jakarta_Sans/PlusJakartaSans-VariableFont_wght.ttf');
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+}
+
 :root {
     --logo-background: rgb(255, 196, 17);
     --logo-text:rgb(255, 254, 248);
     --side-bar-background: rgb(237, 237, 237);
     --project-background: rgb(255, 254, 248);
+    --side-bar-static-text:rgb(11, 11, 11);
 
 }
 
@@ -57,6 +66,7 @@ body, h1, h2, h3, h4, p, li {
 }
 
 .side-bar {
+    font-family: "Plus Jakarta Sans", sans-serif;
     background-color: var(--side-bar-background);
     display: grid;
 }
@@ -67,8 +77,12 @@ body, h1, h2, h3, h4, p, li {
 }
 
 .static h2 {
-    
+    box-sizing: border-box;
+    margin-top: 20px;
+    color: var(--side-bar-static-text);
 }
+
+
 
 .project {
     background-color: var(--project-background);
