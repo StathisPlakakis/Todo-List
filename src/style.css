@@ -1,8 +1,30 @@
 :root {
+    --logo-background: rgb(255, 196, 17);
+    --side-bar-background: rgb(237, 237, 237);
+    --project-background: rgb(255, 254, 248);
 
 }
 
 body, h1, h2, h3, h4, p, li {
     padding: 0px;
     margin: 0px;
+}
+
+.content {
+    display: grid;
+    grid-template-rows: 20vh 80vh;
+    grid-template-columns: 1fr 4fr;
+}
+
+.logo {
+    grid-area: 1/1/2/3;
+    background-color: var(--logo-background);
+}
+
+.side-bar {
+    background-color: var(--side-bar-background);
+}
+
+.project {
+    background-color: var(--project-background);
 }
