@@ -20,7 +20,7 @@ body, h1, h2, h3, h4, p, li {
 
 .content {
     display: grid;
-    grid-template-rows: 20vh 80vh;
+    grid-template-rows: 15vh 85vh;
     grid-template-columns: 1fr 4fr;
 }
 
