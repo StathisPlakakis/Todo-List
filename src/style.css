@@ -19,6 +19,17 @@ body, h1, h2, h3, h4, p, li {
 .logo {
     grid-area: 1/1/2/3;
     background-color: var(--logo-background);
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-auto-flow: column;
+    align-items: center;
+    justify-items: center;
+}
+
+.logo-icon {
+    box-sizing: border-box;
+    padding: 40px;
+    justify-self: start;
 }
 
 .side-bar {
