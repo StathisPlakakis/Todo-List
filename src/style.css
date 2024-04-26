@@ -1,5 +1,8 @@
+
+
 :root {
     --logo-background: rgb(255, 196, 17);
+    --logo-text:rgb(255, 254, 248);
     --side-bar-background: rgb(237, 237, 237);
     --project-background: rgb(255, 254, 248);
 
@@ -39,6 +42,12 @@ body, h1, h2, h3, h4, p, li {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+}
+
+.logo-text {
+    color: var(--logo-text);
+    font-size: 1rem;
+    letter-spacing: 2px;
 }
 
 .side-bar {
