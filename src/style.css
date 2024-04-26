@@ -87,7 +87,11 @@ body, h1, h2, h3, h4, p, li {
     height: 25px;
     width: 25px;
     border-radius: 50%;
-    background-color: black;
+    background-image: url('./assets/create.svg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
 }
 
 .project {
