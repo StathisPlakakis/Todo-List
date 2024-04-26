@@ -32,6 +32,15 @@ body, h1, h2, h3, h4, p, li {
     justify-self: start;
 }
 
+.svg {
+    height: 50px;
+    width: 50px;
+    background-image: url('./assets/logo.svg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
 .side-bar {
     background-color: var(--side-bar-background);
 }
