@@ -92,6 +92,11 @@ body, h1, h2, h3, h4, p, li {
     background-position: center;
     background-repeat: no-repeat;
     cursor: pointer;
+    transition: transform 0.5s ease;
+}
+
+.static > .create:hover {
+    transform: scale(1.4);
 }
 
 .project {
