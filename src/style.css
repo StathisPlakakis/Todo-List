@@ -22,7 +22,7 @@
 
 }
 
-body, h1, h2, h3, h4, p, li {
+body, h1, h2, h3, h4, p, li, dialog, form, input {
     padding: 0px;
     margin: 0px;
 }
@@ -98,6 +98,8 @@ body, h1, h2, h3, h4, p, li {
 .static > .create:hover {
     transform: scale(1.4);
 }
+
+
 
 .project {
     background-color: var(--project-background);
