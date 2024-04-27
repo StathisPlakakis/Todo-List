@@ -136,7 +136,7 @@ body, h1, h2, h3, h4, p, li, form, input {
 .max-chars {
     position: absolute;
     top: 62px;
-    right: 120px;
+    right: 25px;
 }
 
 .action-buttons {
