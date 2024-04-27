@@ -126,10 +126,17 @@ body, h1, h2, h3, h4, p, li, form, input {
     margin-top: 30px;
     margin-bottom: 30px;
     outline: none;
+    position: relative;
 }
 
 .data input::placeholder {
     text-align: center;
+}
+
+.max-chars {
+    position: absolute;
+    top: 62px;
+    right: 120px;
 }
 
 .action-buttons {

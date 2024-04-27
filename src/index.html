@@ -21,12 +21,15 @@
             <form action="#">
               <div class="data">
                 <input
+                  class="projectInput"
                   type="text"
                   name="title"
                   id="title"
                   placeholder="Project's Title"
+                  maxlength="30"
                   required
                 />
+                  <div class="max-chars">0/30</div>
               </div>
               <div class="action-buttons">
                 <button class="cancel" type="reset">Cancel</button>

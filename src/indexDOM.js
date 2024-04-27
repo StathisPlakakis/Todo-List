@@ -10,7 +10,16 @@ cancel.addEventListener("click", () => {
 dialogProjectTitlte.close();
 });
 
+const projectInput = document.querySelector(".projectInput");
+const maxLength = document.querySelector(".max-chars");
+projectInput.addEventListener("input", (e) => {
+    const numOfChars = e.target.value.length;
+    maxLength.textContent = `${numOfChars} / 30`;
+})
+
 export {
     createProjectButton,
-    cancel
+    cancel,
+    projectInput,
+    maxLength
 };
