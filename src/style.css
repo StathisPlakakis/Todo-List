@@ -19,10 +19,15 @@
     --side-bar-background: rgb(237, 237, 237);
     --project-background: rgb(255, 254, 248);
     --side-bar-static-text:rgb(11, 11, 11);
+    --cancel-button: rgba(255, 138, 138, 0.8);
+    --cancel-button-hover: rgba(255, 138, 138, 1);
+    --submit-button: rgba(156, 255, 138, 0.7);
+    --submit-button-hover: rgba(156, 255, 138, 1);
+
 
 }
 
-body, h1, h2, h3, h4, p, li, dialog, form, input {
+body, h1, h2, h3, h4, p, li, form, input {
     padding: 0px;
     margin: 0px;
 }
@@ -99,6 +104,63 @@ body, h1, h2, h3, h4, p, li, dialog, form, input {
     transform: scale(1.4);
 }
 
+.projectTitle {
+    height: 200px;
+    width: 600px;
+    border-radius: 20px;
+    cursor: default;
+}
+
+.data {
+    display: grid;
+    grid-template-columns: 440px;
+    justify-content: center;
+}
+
+
+.data input {
+    font-size: 1.4rem;
+    box-sizing: border-box;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    outline: none;
+}
+
+.data input::placeholder {
+    text-align: center;
+}
+
+.action-buttons {
+    display: grid;
+    grid-template-columns: 150px 150px;
+    justify-content: center;
+    gap: 20px;
+}
+
+.cancel, .submit {
+    font-size: 1.3rem;
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+
+}
+
+.cancel {
+    background-color: var(--cancel-button);
+}
+
+.cancel:hover {
+    background-color: var(--cancel-button-hover);
+}
+
+.submit {
+    background-color: var(--submit-button);
+}
+.submit:hover {
+    background-color: var(--submit-button-hover);
+}
 
 
 .project {
