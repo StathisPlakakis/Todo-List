@@ -1,3 +1,5 @@
+import "./indexProject";
+
 const dialogProjectTitlte = document.querySelector(".projectTitle")
 
 const createProjectButton = document.querySelector(".create");
@@ -20,7 +22,7 @@ projectInput.addEventListener("input", (e) => {
 const submit = document.querySelector(".submit");
 submit.addEventListener("click", (e) => {
     e.preventDefault();
-    
+
 })
 
 export {
