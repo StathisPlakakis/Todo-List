@@ -17,6 +17,12 @@ projectInput.addEventListener("input", (e) => {
     maxLength.textContent = `${numOfChars} / 50`;
 })
 
+const submit = document.querySelector(".submit");
+submit.addEventListener("click", (e) => {
+    e.preventDefault();
+    
+})
+
 export {
     createProjectButton,
     cancel,
