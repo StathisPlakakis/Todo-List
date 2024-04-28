@@ -24,10 +24,11 @@
     --submit-button: rgba(156, 255, 138, 0.7);
     --submit-button-hover: rgba(156, 255, 138, 1);
     --project-list-background: rgb(214, 213, 213);
+    --project-sidebar-hover:rgb(214, 213, 213)
 
 }
 
-body, h1, h2, h3, h4, p, li, form, input {
+body, h1, h2, h3, h4, p, li, form, input, div {
     padding: 0px;
     margin: 0px;
 }
@@ -172,19 +173,24 @@ body, h1, h2, h3, h4, p, li, form, input {
 
 .project-list {
     display: grid;
-    gap: 10px;
     grid-template-rows: min-content;
     grid-auto-rows: min-content;
     overflow: scroll;
+    gap: 20px;
 }
 .project-sidebar {
-    box-sizing: border-box;
     padding: 10px;
     font-size: 1.3rem;
     border-bottom: 1px solid;
-    margin: 20px;
+    margin-right: 20px;
+    margin-left: 20px;
     overflow: scroll;
     overflow-wrap: break-word;
+}
+
+.project-sidebar:hover {
+    cursor: pointer;
+    background-color: var(--project-sidebar-hover);
 }
 
 .project {
