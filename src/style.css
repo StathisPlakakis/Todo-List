@@ -195,4 +195,26 @@ body, h1, h2, h3, h4, p, li, form, input, div {
 
 .project {
     background-color: var(--project-background);
+    justify-items: center;
+    display: grid;
+    grid-auto-rows: min-content;
+    gap: 30px;
+}
+
+.projectInfoTitle {
+    font-size: 2rem;
+    margin-top: 20px;
+}
+
+.create-task {
+    font-size: 1.5rem;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    padding: 10px;
+    border-radius: 10px;
+    transition: transform 0.5s ease;
+}
+
+.create-task:hover {
+    transform: scale(1.1);
+    cursor: pointer;
 }
