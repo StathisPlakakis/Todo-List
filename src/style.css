@@ -218,3 +218,8 @@ body, h1, h2, h3, h4, p, li, form, input, div {
     transform: scale(1.1);
     cursor: pointer;
 }
+
+.newTaskDialog {
+    height: 400px;
+    width: 600px;
+}

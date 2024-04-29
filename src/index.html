@@ -40,7 +40,39 @@
         </div>
         <div class="project-list"></div>
       </div>
-      <div class="project"></div>
+      <div class="project">
+        <dialog class="newTaskDialog">
+          <form action="#">
+            <input type="text" placeholder="Task's Title" max="50" id="title" required />
+            <input
+              type="text"
+              placeholder="Task's Description"
+              max="300"
+              id="description"
+              required
+            />
+            <fieldset>
+              <legend>Priority</legend>
+              <input
+                type="radio"
+                id="low"
+                name="Priority"
+                value="low"
+                required
+              />
+              <label for="low">Low</label>
+              <input type="radio" id="medium" name="Priority" value="medium" />
+              <label for="medium">Medium</label>
+              <input type="radio" id="hight" name="Priority" value="high" />
+              <label for="high">High</label>
+            </fieldset>
+            <input type="date" id="date" name="date" required />
+            <label for="date">Date</label>
+            <button type="reset" class="cancel-task">Cancel</button>
+            <button class="submit-task">Submit</button>
+          </form>
+        </dialog>
+      </div>
     </div>
   </body>
 </html>
