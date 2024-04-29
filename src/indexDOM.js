@@ -1,5 +1,5 @@
 import ProjectFactory from "./indexProjectFactory";
-import AllProjects from "./indexRenderProjects";
+import AllProjects from "./indexProjectsRender";
 
 
 
