@@ -1,4 +1,7 @@
-import Project from "./indexProject";
+import ProjectFactory from "./indexProjectFactory";
+import AllProjects from "./indexRenderProjects";
+
+
 
 const dialogProjectTitlte = document.querySelector(".projectTitle")
 
@@ -23,16 +26,8 @@ const submit = document.querySelector(".submit");
 submit.addEventListener("click", (e) => {
     if (projectInput.value.length > 0) {
         e.preventDefault();
-        const newProject = new Project(projectInput.value);
-        const allProjects = document.querySelector(".project-list");
-        allProjects.innerHTML = "";
-        Project.myProjects.forEach((project, index) => {
-            const projectElement = document.createElement("div");
-            projectElement.textContent = project.title;
-            projectElement.setAttribute("index", index);
-            projectElement.classList.add("project-sidebar");
-            allProjects.appendChild(projectElement);
-        })
+        ProjectFactory.createProject(projectInput.value);
+        AllProjects.renderAllProjects();
         maxLength.textContent = "0 / 50";
         projectInput.value = "";
         dialogProjectTitlte.close();
