@@ -4,7 +4,7 @@ class Project {
     constructor (title) {
         this.title = title;
         this.tasks = [];
-        this.active = false;
+        this.active = true;
         Project.myProjects.push(this);
     }
 

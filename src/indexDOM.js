@@ -27,6 +27,7 @@ submit.addEventListener("click", (e) => {
     if (projectInput.value.length > 0) {
         e.preventDefault();
         ProjectFactory.createProject(projectInput.value);
+        AllProjects.newProject();
         AllProjects.renderAllProjects();
         maxLength.textContent = "0 / 50";
         projectInput.value = "";
