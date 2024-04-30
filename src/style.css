@@ -250,7 +250,15 @@ body, h1, h2, h3, h4, p, li, form, input, div {
     text-align: center;
 }
 
+.data3 {
+    display: grid;
+}
 
+.max-chars3 {
+    position: absolute;
+    top: 172px;
+    right: 35px;
+}
 
 .task-description {
     height: 100px; 

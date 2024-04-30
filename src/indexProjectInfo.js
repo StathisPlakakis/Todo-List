@@ -23,6 +23,13 @@ class ProjectInfo {
             maxLength2.textContent = `${numOfChars} / 50`;
         })
 
+        const taskDescriptio = document.querySelector(".task-description");
+        const maxLength3 = document.querySelector(".max-chars3");
+        taskDescriptio.addEventListener("input", (e) => {
+            const numOfChars = e.target.value.length;
+            maxLength3.textContent = `${numOfChars} / 300`;
+        })
+
 
     }
 }
