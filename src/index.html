@@ -43,33 +43,56 @@
       <div class="project">
         <dialog class="newTaskDialog">
           <form action="#">
-            <input type="text" placeholder="Task's Title" max="50" id="title" required />
-            <input
-              type="text"
-              placeholder="Task's Description"
-              max="300"
-              id="description"
-              required
-            />
-            <fieldset>
-              <legend>Priority</legend>
-              <input
-                type="radio"
-                id="low"
-                name="Priority"
-                value="low"
-                required
-              />
-              <label for="low">Low</label>
-              <input type="radio" id="medium" name="Priority" value="medium" />
-              <label for="medium">Medium</label>
-              <input type="radio" id="hight" name="Priority" value="high" />
-              <label for="high">High</label>
-            </fieldset>
-            <input type="date" id="date" name="date" required />
-            <label for="date">Date</label>
-            <button type="reset" class="cancel-task">Cancel</button>
-            <button class="submit-task">Submit</button>
+            <div class="dialogData">
+              <div class="data2">
+                <input
+                  type="text"
+                  placeholder="Task's Title"
+                  maxlength="50"
+                  class="task-title"
+                  required
+                />
+                <div class="max-chars2">0 / 50</div>
+              </div>
+
+              <div class="data3">
+                <textarea
+                  class="task-description"
+                  rows="10"
+                  cols="50"
+                  placeholder="Task's Description"
+                  maxlength="300"
+                  required
+                ></textarea>
+                <div class="max-chars3">0 / 50</div>
+              </div>
+
+
+              <fieldset>
+                <input
+                  type="radio"
+                  id="low"
+                  name="Priority"
+                  value="low"
+                  required
+                />
+                <label for="low">Low</label>
+                <input
+                  type="radio"
+                  id="medium"
+                  name="Priority"
+                  value="medium"
+                />
+                <label for="medium">Medium</label>
+                <input type="radio" id="hight" name="Priority" value="high" />
+                <label for="high">High</label>
+              </fieldset>
+
+              <input type="date" id="date" name="date" required />
+              <label for="date" class="date-icon">date</label>
+              <button type="reset" class="cancel-task">Cancel</button>
+              <button class="submit-task">Submit</button>
+            </div>
           </form>
         </dialog>
       </div>
