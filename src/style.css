@@ -222,11 +222,12 @@ body, h1, h2, h3, h4, p, li, form, input, div {
 .newTaskDialog {
     height: 400px;
     width: 600px;
+    border-radius: 10px;
 }
 
 .dialogData {
     display: grid;
-    gap: 10px;
+    gap: 20px;
 }
 
 .data2 {
@@ -268,9 +269,32 @@ body, h1, h2, h3, h4, p, li, form, input, div {
     font-family: "Plus Jakarta Sans", sans-serif;;
     border-radius: 10px;
     outline: none;
-
   }
 
 
+.dateData {
+    padding: 10px;
+    height: 30px;
+    width: 60px;
+    background-color: var(--side-bar-background);
+    border-radius: 10px;
+    cursor: pointer;
 
-  
+}
+
+#date {
+    opacity: 0;
+    width: 0px;
+    cursor: pointer;
+}
+
+.date-icon {
+    display: inline-block;
+    height: 30px;
+    width: 60px;
+    background-image: url("./assets/calendar.svg");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+};

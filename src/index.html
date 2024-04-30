@@ -67,8 +67,7 @@
                 <div class="max-chars3">0 / 300</div>
               </div>
 
-
-              <fieldset>
+              <!-- <fieldset>
                 <input
                   type="radio"
                   id="low"
@@ -86,10 +85,14 @@
                 <label for="medium">Medium</label>
                 <input type="radio" id="hight" name="Priority" value="high" />
                 <label for="high">High</label>
-              </fieldset>
+              </fieldset> -->
 
-              <input type="date" id="date" name="date" required />
-              <label for="date" class="date-icon">date</label>
+              <div class="dateData">
+                <label for="date" class="date-icon"
+                  ><input type="date" id="date" name="date" required
+                /></label>
+              </div>
+
               <button type="reset" class="cancel-task">Cancel</button>
               <button class="submit-task">Submit</button>
             </div>

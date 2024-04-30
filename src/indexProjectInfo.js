@@ -30,7 +30,11 @@ class ProjectInfo {
             maxLength3.textContent = `${numOfChars} / 300`;
         })
 
-
+        const dateIcon = document.querySelector(".dateData");
+        const dateElement = document.querySelector("#date");
+        dateIcon.addEventListener("click", () => {
+            dateElement.showPicker();
+        })
     }
 }
 
