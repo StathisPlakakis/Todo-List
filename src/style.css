@@ -28,7 +28,7 @@
 
 }
 
-body, h1, h2, h3, h4, p, li, form, input, div {
+body, h1, h2, h3, h4, p, li, form, input, div, fieldset {
     padding: 0px;
     margin: 0px;
 }
@@ -272,6 +272,12 @@ body, h1, h2, h3, h4, p, li, form, input, div {
   }
 
 
+/* .date-priority {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+} */
+
 .dateData {
     width: min-content;
     padding: 10px;
@@ -299,3 +305,16 @@ body, h1, h2, h3, h4, p, li, form, input, div {
     background-repeat: no-repeat;
     cursor: pointer;
 };
+
+.priorityData {
+    background-color: var(--side-bar-background);
+}
+
+fieldset {
+    border: none;
+    background-color: var(--side-bar-background);
+}
+
+fieldset label {
+    display: inline;
+}

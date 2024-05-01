@@ -67,31 +67,52 @@
                 <div class="max-chars3">0 / 300</div>
               </div>
 
-              <!-- <fieldset>
-                <input
-                  type="radio"
-                  id="low"
-                  name="Priority"
-                  value="low"
-                  required
-                />
-                <label for="low">Low</label>
-                <input
-                  type="radio"
-                  id="medium"
-                  name="Priority"
-                  value="medium"
-                />
-                <label for="medium">Medium</label>
-                <input type="radio" id="hight" name="Priority" value="high" />
-                <label for="high">High</label>
-              </fieldset> -->
+              <div class="date-priority">
 
-              <div class="dateData">
-                <label for="date" class="date-icon">
-                  <input type="date" id="date" name="date" required />
-                  <h2 class="newDateValue"></h2>
-                </label>
+                <div class="dateData">
+                  <label for="date" class="date-icon">
+                    <input type="date" id="date" name="date" required />
+                    <h2 class="newDateValue"></h2>
+                  </label>
+                </div>
+
+                <div class="priorityData">
+                  <fieldset>
+                    <label for="low">
+                      <span>Low</span>
+                      <input
+                        type="radio"
+                        id="low"
+                        name="Priority"
+                        value="low"
+                        required
+                      />
+                      <div class="icon-low"></div>
+                    </label>
+
+                    <label for="medium">
+                      <span>Medium</span>
+                      <input
+                        type="radio"
+                        id="medium"
+                        name="Priority"
+                        value="medium"
+                      />
+                      <div class="icon-medium"></div>
+                    </label>
+
+                    <label for="high">
+                      <span>High</span>
+                      <input
+                        type="radio"
+                        id="high"
+                        name="Priority"
+                        value="high"
+                      />
+                      <div class="icon-high"></div>
+                    </label>
+                  </fieldset>
+                </div>
               </div>
 
               <button type="reset" class="cancel-task">Cancel</button>
