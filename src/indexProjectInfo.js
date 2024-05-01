@@ -1,3 +1,5 @@
+import { format } from 'date-fns';
+
 class ProjectInfo {
     static projectInfoRender (project) {
         const taskDialog = document.querySelector(".newTaskDialog");
@@ -32,6 +34,9 @@ class ProjectInfo {
 
         const dateIcon = document.querySelector(".dateData");
         const dateElement = document.querySelector("#date");
+        const today = new Date();
+        const formattedDate = format(today, 'yyyy-MM-dd');
+        dateElement.setAttribute("min", formattedDate);
         dateIcon.addEventListener("click", () => {
             dateElement.showPicker();
         })
