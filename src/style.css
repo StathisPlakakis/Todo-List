@@ -306,15 +306,41 @@ body, h1, h2, h3, h4, p, li, form, input, div, fieldset {
     cursor: pointer;
 };
 
+
 .priorityData {
-    background-color: var(--side-bar-background);
+    width: min-content;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    position: relative;
 }
 
-fieldset {
+#options {
     border: none;
     background-color: var(--side-bar-background);
+    width: max-content;
 }
 
-fieldset label {
-    display: inline;
+#low, #medium, #high {
+    display: none;
+}
+
+.icon-low, .icon-medium, .icon-high {
+    height: 20px;
+    width: 20px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.icon-low {
+    background-image: url("./assets/low.svg");
+}
+
+.icon-medium {
+    background-image: url("./assets/medium.svg");
+}
+
+.icon-high {
+    background-image: url("./assets/high.svg");
 }

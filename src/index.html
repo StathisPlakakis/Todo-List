@@ -68,7 +68,6 @@
               </div>
 
               <div class="date-priority">
-
                 <div class="dateData">
                   <label for="date" class="date-icon">
                     <input type="date" id="date" name="date" required />
@@ -77,9 +76,10 @@
                 </div>
 
                 <div class="priorityData">
-                  <fieldset>
+                  <fieldset id="options">
                     <label for="low">
                       <span>Low</span>
+                      <div class="icon-low"></div>
                       <input
                         type="radio"
                         id="low"
@@ -87,9 +87,7 @@
                         value="low"
                         required
                       />
-                      <div class="icon-low"></div>
                     </label>
-
                     <label for="medium">
                       <span>Medium</span>
                       <input
@@ -100,7 +98,6 @@
                       />
                       <div class="icon-medium"></div>
                     </label>
-
                     <label for="high">
                       <span>High</span>
                       <input
