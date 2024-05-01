@@ -23,9 +23,9 @@ class ProjectInfo {
             maxLength2.textContent = `${numOfChars} / 50`;
         })
 
-        const taskDescriptio = document.querySelector(".task-description");
+        const taskDescription = document.querySelector(".task-description");
         const maxLength3 = document.querySelector(".max-chars3");
-        taskDescriptio.addEventListener("input", (e) => {
+        taskDescription.addEventListener("input", (e) => {
             const numOfChars = e.target.value.length;
             maxLength3.textContent = `${numOfChars} / 300`;
         })
@@ -34,6 +34,14 @@ class ProjectInfo {
         const dateElement = document.querySelector("#date");
         dateIcon.addEventListener("click", () => {
             dateElement.showPicker();
+        })
+        dateElement.addEventListener("change", () => {
+            const container = document.querySelector(".date-icon")
+            const newDateValue = document.querySelector(".newDateValue");
+            newDateValue.textContent = "";
+            newDateValue.textContent += dateElement.value;
+            container.style.width = "max-content";
+            container.style.backgroundImage = "none";
         })
     }
 }
