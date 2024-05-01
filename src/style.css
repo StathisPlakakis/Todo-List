@@ -220,14 +220,14 @@ body, h1, h2, h3, h4, p, li, form, input, div, fieldset {
 }
 
 .newTaskDialog {
-    height: 400px;
+    height: 550px;
     width: 600px;
     border-radius: 10px;
 }
 
 .dialogData {
     display: grid;
-    gap: 20px;
+    gap: 30px;
 }
 
 .data2 {
@@ -272,11 +272,6 @@ body, h1, h2, h3, h4, p, li, form, input, div, fieldset {
   }
 
 
-/* .date-priority {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    justify-items: center;
-} */
 
 .dateData {
     width: min-content;
@@ -296,8 +291,9 @@ body, h1, h2, h3, h4, p, li, form, input, div, fieldset {
 }
 
 .date-icon {
-    display: inline-block;
-    height: 30px;
+    display: grid;
+    align-items: center;
+    height: 80px;
     width: 80px;
     background-image: url("./assets/calendar.svg");
     background-size: contain;
@@ -306,11 +302,32 @@ body, h1, h2, h3, h4, p, li, form, input, div, fieldset {
     cursor: pointer;
 };
 
+#pdata {
+    width: min-content;
+    padding: 10px;
+    background-color: var(--side-bar-background);
+    border-radius: 10px;
+    cursor: pointer;
+    position: relative;
+}
 
 .priorityData {
     width: min-content;
     padding: 10px;
+    background-color: var(--side-bar-background);
     border-radius: 10px;
+    cursor: pointer;
+    position: relative;
+}
+
+.priority-icon {
+    display: inline-block;
+    height: 30px;
+    width: 80px;
+    background-color: var(--side-bar-background);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
     cursor: pointer;
     position: relative;
 }
@@ -318,19 +335,25 @@ body, h1, h2, h3, h4, p, li, form, input, div, fieldset {
 #options {
     border: none;
     background-color: var(--side-bar-background);
-    width: max-content;
+    display: grid;
+    border-radius: 10px;
+
 }
 
 #low, #medium, #high {
-    display: none;
+    opacity: 0;
 }
 
+
+
 .icon-low, .icon-medium, .icon-high {
-    height: 20px;
-    width: 20px;
+    height: 30px;
+    width: 30px;
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
+    display: inline-block;
+    justify-self: end;
 }
 
 .icon-low {
@@ -343,4 +366,58 @@ body, h1, h2, h3, h4, p, li, form, input, div, fieldset {
 
 .icon-high {
     background-image: url("./assets/high.svg");
+}
+
+#options label {
+    display: grid;
+    grid-auto-flow: column;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 5px;
+}
+
+#options label:hover {
+    background-color: rgb(184, 184, 184);
+    cursor: pointer;
+}
+
+.date-priority {
+    display: grid;  
+    grid-auto-flow: column;
+    justify-items: center;
+    
+}
+
+.importantButtons {
+    margin-top: 20px;
+    display: grid;
+    grid-auto-flow: column;
+}
+
+.cancel-task {
+    width: max-content;
+    justify-self: start;
+    font-size: 2rem;
+    border-radius: 10px;
+    background-color: var(--cancel-button);
+    cursor: pointer;
+    padding: 20px;
+}
+
+.cancel-task:hover {
+    background-color: var(--cancel-button-hover);
+}
+
+.submit-task {
+    width: max-content;
+    justify-self: end;
+    font-size: 2rem;
+    border-radius: 10px;
+    background-color: var(--submit-button);
+    cursor: pointer;
+    padding: 20px;
+}
+
+.submit-task:hover {
+    background-color: var(--submit-button-hover);
 }

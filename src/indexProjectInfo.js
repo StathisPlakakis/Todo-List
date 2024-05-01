@@ -48,7 +48,58 @@ class ProjectInfo {
             container.style.width = "max-content";
             container.style.backgroundImage = "none";
         })
-    }
-}
 
+        const priorityData = document.querySelector(".priorityData");
+        const fieldset = document.querySelector("#options");
+        const labels = document.querySelectorAll(".lab")
+        const inputs = document.getElementsByName("Priority");
+        let userSelect = "undefined";
+       
+        fieldset.addEventListener("click", () => {
+            
+            const container = document.querySelector(".priority-icon")
+            const newPriorityValue = document.querySelector(".newPriorityValue");
+            container.style.width = "max-content";
+            container.style.backgroundImage = "none";
+            newPriorityValue.textContent = "";      
+                 
+            for (let i = 0; i < 3; i++) {
+                if (inputs[i].checked) {
+                    userSelect = inputs[i].value;
+                }
+            }  
+
+
+            if (userSelect === "low") {
+                newPriorityValue.style.color = "yellow";
+                newPriorityValue.textContent += "Low";
+            }else if (userSelect === "medium") {
+                newPriorityValue.style.color = "orange";
+                newPriorityValue.textContent += "Medium";
+            }else {
+                newPriorityValue.style.color = "red";
+                newPriorityValue.textContent += "High";
+            }
+
+    })
+
+    const cancelButton = document.querySelector(".cancel-task");
+    cancelButton.addEventListener("click", () => {
+        document.querySelector(".max-chars2").textContent = "0 / 50"
+        document.querySelector(".max-chars3").textContent = "0 / 300"
+        taskDialog.close();
+    })
+
+    const submitButton = document.querySelector(".submit-task");
+    submitButton.addEventListener("click", (e) => { 
+        if (document.querySelector(".task-title").value !== "" &&
+            document.querySelector(".task-description").value !== "" &&
+            document.querySelector("#date").value !== "" &&
+            userSelect !== "undefined"
+            ) {
+                e.preventDefault();
+            }
+    })
+}
+}
 export default ProjectInfo;

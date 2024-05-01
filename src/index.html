@@ -75,45 +75,52 @@
                   </label>
                 </div>
 
-                <div class="priorityData">
-                  <fieldset id="options">
-                    <label for="low">
-                      <span>Low</span>
-                      <div class="icon-low"></div>
-                      <input
-                        type="radio"
-                        id="low"
-                        name="Priority"
-                        value="low"
-                        required
-                      />
-                    </label>
-                    <label for="medium">
-                      <span>Medium</span>
-                      <input
-                        type="radio"
-                        id="medium"
-                        name="Priority"
-                        value="medium"
-                      />
-                      <div class="icon-medium"></div>
-                    </label>
-                    <label for="high">
-                      <span>High</span>
-                      <input
-                        type="radio"
-                        id="high"
-                        name="Priority"
-                        value="high"
-                      />
-                      <div class="icon-high"></div>
-                    </label>
-                  </fieldset>
+                <div id="pdata">
+                  <div class="priorityData">
+                    <div class="priority-icon">
+                      <h2 class="newPriorityValue">Priority</h2>
+                    </div>
+                    <fieldset id="options">
+                      <label for="low" class="lab">
+                        <span>Low</span>
+                        <input
+                          type="radio"
+                          id="low"
+                          name="Priority"
+                          value="low"
+                          required
+                        />
+                        <div class="icon-low"></div>
+                      </label>
+                      <label for="medium" class="lab">
+                        <span>Medium</span>
+                        <input
+                          type="radio"
+                          id="medium"
+                          name="Priority"
+                          value="medium"
+                        />
+                        <div class="icon-medium"></div>
+                      </label>
+                      <label for="high" class="lab">
+                        <span>High</span>
+                        <input
+                          type="radio"
+                          id="high"
+                          name="Priority"
+                          value="high"
+                        />
+                        <div class="icon-high"></div>
+                      </label>
+                    </fieldset>
+                  </div>
                 </div>
               </div>
 
-              <button type="reset" class="cancel-task">Cancel</button>
-              <button class="submit-task">Submit</button>
+              <div class="importantButtons">
+                <button type="reset" class="cancel-task">Cancel</button>
+                <button class="submit-task">Submit</button>
+              </div>
             </div>
           </form>
         </dialog>
