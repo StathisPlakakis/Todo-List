@@ -1,5 +1,5 @@
 import { format } from 'date-fns';
-
+import TaskFactory from './indexTaskFactory';
 
 class ProjectInfo {
     static projectInfoRender (project) {
@@ -109,6 +109,9 @@ class ProjectInfo {
             userSelect !== "undefined"
             ) {
                 e.preventDefault();
+                TaskFactory.createTask(document.querySelector(".task-title").value,document.querySelector(".task-description").value,
+                document.querySelector("#date").value,
+                userSelect);
             }
     })
 
