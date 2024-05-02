@@ -110,6 +110,43 @@ class ProjectInfo {
                 e.preventDefault();
             }
     })
+
+    const tableOfTasks = document.createElement("table");
+    const firstRow = document.createElement("tr");
+    const firstHeading = document.createElement("th");
+    firstHeading.textContent = "No";
+    firstHeading.setAttribute("scope", "col");
+    firstRow.appendChild(firstHeading);
+    const secondHeading = document.createElement("th");
+    secondHeading.textContent = "Title";
+    secondHeading.setAttribute("scope", "col");
+    firstRow.appendChild(secondHeading);
+    const thirdHeading = document.createElement("th");
+    thirdHeading.textContent = "Description";
+    thirdHeading.setAttribute("scope", "col");
+    firstRow.appendChild(thirdHeading);
+    const fourthHeading = document.createElement("th");
+    fourthHeading.textContent = "Date";
+    fourthHeading.setAttribute("scope", "col");
+    firstRow.appendChild(fourthHeading);
+    const fifthHeading = document.createElement("th");
+    fifthHeading.textContent = "Priority";
+    fifthHeading.setAttribute("scope", "col");
+    firstRow.appendChild(fifthHeading);
+    const sixthHeading = document.createElement("th");
+    sixthHeading.textContent = "Status";
+    sixthHeading.setAttribute("scope", "col");
+    firstRow.appendChild(sixthHeading);
+    const seventhHeading = document.createElement("th");
+    seventhHeading.textContent = "";
+    firstHeading.setAttribute("scope", "col");
+    firstRow.appendChild(seventhHeading);
+    const eighthHeading = document.createElement("th");
+    eighthHeading.textContent = "";
+    eighthHeading.setAttribute("scope", "col");
+    firstRow.appendChild(eighthHeading);
+    tableOfTasks.appendChild(firstRow);
+    projectViewport.appendChild(tableOfTasks);
 }
 }
 export default ProjectInfo;
