@@ -12,7 +12,8 @@ createProjectButton.addEventListener("click", () => {
 
 const cancel = document.querySelector(".cancel");
 cancel.addEventListener("click", () => {
-dialogProjectTitlte.close();
+    maxLength.textContent = `0 / 50`;
+    dialogProjectTitlte.close();
 });
 
 const projectInput = document.querySelector(".projectInput");

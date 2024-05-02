@@ -280,7 +280,8 @@ body, h1, h2, h3, h4, p, li, form, input, div, fieldset {
     border-radius: 10px;
     cursor: pointer;
     position: relative;
-
+    display: grid;
+    align-items: center;
 }
 
 #date {
