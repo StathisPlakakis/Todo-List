@@ -1,5 +1,6 @@
 import { format } from 'date-fns';
 
+
 class ProjectInfo {
     static projectInfoRender (project) {
         const taskDialog = document.querySelector(".newTaskDialog");
