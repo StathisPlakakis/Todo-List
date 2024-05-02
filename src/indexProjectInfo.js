@@ -34,6 +34,9 @@ class ProjectInfo {
 
         const dateIcon = document.querySelector(".dateData");
         const dateElement = document.querySelector("#date");
+        const container1 = document.querySelector(".date-icon")
+        const newDateValue = document.querySelector(".newDateValue");
+        const backgroundImage = container1.style.backgroundImage;
         const today = new Date();
         const formattedDate = format(today, 'yyyy-MM-dd');
         dateElement.setAttribute("min", formattedDate);
@@ -41,12 +44,11 @@ class ProjectInfo {
             dateElement.showPicker();
         })
         dateElement.addEventListener("change", () => {
-            const container = document.querySelector(".date-icon")
-            const newDateValue = document.querySelector(".newDateValue");
+            
             newDateValue.textContent = "";
             newDateValue.textContent += dateElement.value;
-            container.style.width = "max-content";
-            container.style.backgroundImage = "none";
+            container1.style.width = "max-content";
+            container1.style.backgroundImage = "none";
         })
 
         const priorityData = document.querySelector(".priorityData");
@@ -54,11 +56,12 @@ class ProjectInfo {
         const labels = document.querySelectorAll(".lab")
         const inputs = document.getElementsByName("Priority");
         let userSelect = "undefined";
+        const container = document.querySelector(".priority-icon")
+        const newPriorityValue = document.querySelector(".newPriorityValue");
        
         fieldset.addEventListener("click", () => {
             
-            const container = document.querySelector(".priority-icon")
-            const newPriorityValue = document.querySelector(".newPriorityValue");
+            
             container.style.width = "max-content";
             container.style.backgroundImage = "none";
             newPriorityValue.textContent = "";      
@@ -85,8 +88,15 @@ class ProjectInfo {
 
     const cancelButton = document.querySelector(".cancel-task");
     cancelButton.addEventListener("click", () => {
-        document.querySelector(".max-chars2").textContent = "0 / 50"
-        document.querySelector(".max-chars3").textContent = "0 / 300"
+        document.querySelector(".max-chars2").textContent = "0 / 50";
+        document.querySelector(".max-chars3").textContent = "0 / 300";
+        document.querySelector(".date-icon").style.width = "100px";
+        document.querySelector(".date-icon").style.width = "100px";
+        document.querySelector(".date-icon").style.backgroundImage = `${backgroundImage}`;
+        document.querySelector(".newDateValue").textContent = "";
+        userSelect = "undefined";
+        newPriorityValue.textContent = "Priority";
+        newPriorityValue.style.color = "black";
         taskDialog.close();
     })
 
