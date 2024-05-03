@@ -25,12 +25,6 @@ class AllTasks {
                 const status = document.createElement("td");
                 status.textContent = task.status ? "Completed" : "Uncompleted";
                 nextRow.appendChild(status);
-                const edit = document.createElement("td");
-                edit.textContent = "Edit"
-                nextRow.appendChild(edit);
-                const del = document.createElement("td");
-                del.textContent = "Delete"
-                nextRow.appendChild(del);
                 tbody.appendChild(nextRow);
             })
     }

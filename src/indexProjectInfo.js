@@ -65,8 +65,6 @@ class ProjectInfo {
             
             
             container.style.width = "max-content";
-            container.style.backgroundImage = "none";
-            newPriorityValue.textContent = "";      
                  
             for (let i = 0; i < 3; i++) {
                 if (inputs[i].checked) {
@@ -76,12 +74,15 @@ class ProjectInfo {
 
 
             if (userSelect === "low") {
+                newPriorityValue.textContent = "";      
                 newPriorityValue.style.color = "yellow";
                 newPriorityValue.textContent += "Low";
             }else if (userSelect === "medium") {
+                newPriorityValue.textContent = "";      
                 newPriorityValue.style.color = "orange";
                 newPriorityValue.textContent += "Medium";
-            }else {
+            }else if (userSelect === "high") {
+                newPriorityValue.textContent = "";      
                 newPriorityValue.style.color = "red";
                 newPriorityValue.textContent += "High";
             }
@@ -125,6 +126,8 @@ class ProjectInfo {
             }
     })
 
+    const containerOfTable = document.createElement("div");
+    containerOfTable.classList.add("containerOfTable");
     const tableOfTasks = document.createElement("table");
     const firstRow = document.createElement("tr");
     const thead = document.createElement("thead");
@@ -152,19 +155,12 @@ class ProjectInfo {
     sixthHeading.textContent = "Status";
     sixthHeading.setAttribute("scope", "col");
     firstRow.appendChild(sixthHeading);
-    const seventhHeading = document.createElement("th");
-    seventhHeading.textContent = "";
-    firstHeading.setAttribute("scope", "col");
-    firstRow.appendChild(seventhHeading);
-    const eighthHeading = document.createElement("th");
-    eighthHeading.textContent = "";
-    eighthHeading.setAttribute("scope", "col");
-    firstRow.appendChild(eighthHeading);
     thead.appendChild(firstRow);
     tableOfTasks.appendChild(thead);
     const tbody = document.createElement("tbody");
     tableOfTasks.appendChild(tbody);
-    projectViewport.appendChild(tableOfTasks);
+    containerOfTable.appendChild(tableOfTasks)
+    projectViewport.appendChild(containerOfTable);
     AllTasks.renderAllTasks(project);
  }
 

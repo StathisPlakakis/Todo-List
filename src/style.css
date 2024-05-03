@@ -28,7 +28,7 @@
 
 }
 
-body, h1, h2, h3, h4, p, li, form, input, div, fieldset {
+body, h1, h2, h3, h4, p, li, form, input, div, fieldset, tr, th, td  {
     padding: 0px;
     margin: 0px;
 }
@@ -199,6 +199,7 @@ body, h1, h2, h3, h4, p, li, form, input, div, fieldset {
     display: grid;
     grid-auto-rows: min-content;
     gap: 30px;
+    overflow: scroll;
 }
 
 .projectInfoTitle {
@@ -427,4 +428,37 @@ body, h1, h2, h3, h4, p, li, form, input, div, fieldset {
 
 .submit-task:hover {
     background-color: var(--submit-button-hover);
+}
+
+div.containerOfTable {
+    width: 90%;
+    display: grid;
+    overflow: scroll;
+}
+
+table {
+    margin-top: 20px;
+    background-color: var(--side-bar-background);
+    font-family: "Plus Jakarta Sans", sans-serif;
+    letter-spacing: 1px;
+    border-radius: 10px;
+    width: 100%;
+    table-layout: auto; 
+    border-collapse: collapse;
+}
+
+th, td { 
+    padding: 10px 30px;
+    text-align: start;
+    font-size: 1.2rem;
+    max-width: 200px;
+    overflow-wrap: break-word;
+}
+
+td {
+    font-size: 1rem;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: var(--project-background);
 }
