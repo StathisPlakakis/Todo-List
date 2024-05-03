@@ -1,5 +1,7 @@
 import { format } from 'date-fns';
 import TaskFactory from './indexTaskFactory';
+import AllTasks from './indexTaksRender';
+import Project from './indexProject';
 
 class ProjectInfo {
     static projectInfoRender (project) {
@@ -112,11 +114,31 @@ class ProjectInfo {
                 TaskFactory.createTask(document.querySelector(".task-title").value,document.querySelector(".task-description").value,
                 document.querySelector("#date").value,
                 userSelect);
+                Project.myProjects.forEach((project) => {
+                    if (project.active) {
+                        ProjectInfo.projectInfoRender(project);
+                    }
+                })               
+                document.querySelector(".task-title").value = "";
+                document.querySelector(".task-description").value = "";
+                document.querySelector("#date").value = "";
+                userSelect = "undefined";
+                document.querySelector(".max-chars2").textContent = "0 / 50";
+                document.querySelector(".max-chars3").textContent = "0 / 300";
+                document.querySelector(".date-icon").style.width = "100px";
+                document.querySelector(".date-icon").style.width = "100px";
+                document.querySelector(".date-icon").style.backgroundImage = `${backgroundImage}`;
+                document.querySelector(".newDateValue").textContent = "";
+                userSelect = "undefined";
+                newPriorityValue.textContent = "Priority";
+                newPriorityValue.style.color = "black";
+                taskDialog.close()
             }
     })
 
     const tableOfTasks = document.createElement("table");
     const firstRow = document.createElement("tr");
+    const thead = document.createElement("thead");
     const firstHeading = document.createElement("th");
     firstHeading.textContent = "No";
     firstHeading.setAttribute("scope", "col");
@@ -149,8 +171,13 @@ class ProjectInfo {
     eighthHeading.textContent = "";
     eighthHeading.setAttribute("scope", "col");
     firstRow.appendChild(eighthHeading);
-    tableOfTasks.appendChild(firstRow);
+    thead.appendChild(firstRow);
+    tableOfTasks.appendChild(thead);
+    const tbody = document.createElement("tbody");
+    tableOfTasks.appendChild(tbody);
     projectViewport.appendChild(tableOfTasks);
+    AllTasks.renderAllTasks(project);
 }
+
 }
 export default ProjectInfo;
