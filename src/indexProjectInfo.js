@@ -96,6 +96,7 @@ class ProjectInfo {
         document.querySelector(".date-icon").style.width = "100px";
         document.querySelector(".date-icon").style.width = "100px";
         document.querySelector(".date-icon").style.backgroundImage = `${backgroundImage}`;
+        document.querySelector(".date-icon").style.backgroundSize = "contain"
         document.querySelector(".newDateValue").textContent = "";
         userSelect = "undefined";
         newPriorityValue.textContent = "Priority";
