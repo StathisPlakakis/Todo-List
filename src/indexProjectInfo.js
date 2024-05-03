@@ -2,6 +2,8 @@ import { format } from 'date-fns';
 import TaskFactory from './indexTaskFactory';
 import AllTasks from './indexTaksRender';
 import Project from './indexProject';
+import backgroundImagee from './assets/calendar.svg';
+
 
 class ProjectInfo {
     static projectInfoRender (project) {
@@ -39,14 +41,13 @@ class ProjectInfo {
         const dateElement = document.querySelector("#date");
         const container1 = document.querySelector(".date-icon")
         const newDateValue = document.querySelector(".newDateValue");
-        const backgroundImage = container1.style.backgroundImage;
         const today = new Date();
         const formattedDate = format(today, 'yyyy-MM-dd');
         dateElement.setAttribute("min", formattedDate);
         dateIcon.addEventListener("click", () => {
             dateElement.showPicker();
         })
-        dateElement.addEventListener("change", () => {
+        dateElement.addEventListener("input", () => {
             
             newDateValue.textContent = "";
             newDateValue.textContent += dateElement.value;
@@ -54,9 +55,7 @@ class ProjectInfo {
             container1.style.backgroundImage = "none";
         })
 
-        const priorityData = document.querySelector(".priorityData");
         const fieldset = document.querySelector("#options");
-        const labels = document.querySelectorAll(".lab")
         const inputs = document.getElementsByName("Priority");
         let userSelect = "undefined";
         const container = document.querySelector(".priority-icon")
@@ -95,9 +94,8 @@ class ProjectInfo {
         document.querySelector(".max-chars3").textContent = "0 / 300";
         document.querySelector(".date-icon").style.width = "100px";
         document.querySelector(".date-icon").style.width = "100px";
-        document.querySelector(".date-icon").style.backgroundImage = `${backgroundImage}`;
-        document.querySelector(".date-icon").style.backgroundSize = "contain"
         document.querySelector(".newDateValue").textContent = "";
+        document.querySelector(".date-icon").style.backgroundImage = `url(${backgroundImagee})`;
         userSelect = "undefined";
         newPriorityValue.textContent = "Priority";
         newPriorityValue.style.color = "black";
@@ -112,28 +110,18 @@ class ProjectInfo {
             userSelect !== "undefined"
             ) {
                 e.preventDefault();
-                TaskFactory.createTask(document.querySelector(".task-title").value,document.querySelector(".task-description").value,
-                document.querySelector("#date").value,
-                userSelect);
+                TaskFactory.createTask (
+                    document.querySelector(".task-title").value,
+                    document.querySelector(".task-description").value,
+                    document.querySelector("#date").value,
+                    userSelect
+                );
                 Project.myProjects.forEach((project) => {
                     if (project.active) {
                         ProjectInfo.projectInfoRender(project);
                     }
                 })               
-                document.querySelector(".task-title").value = "";
-                document.querySelector(".task-description").value = "";
-                document.querySelector("#date").value = "";
-                userSelect = "undefined";
-                document.querySelector(".max-chars2").textContent = "0 / 50";
-                document.querySelector(".max-chars3").textContent = "0 / 300";
-                document.querySelector(".date-icon").style.width = "100px";
-                document.querySelector(".date-icon").style.width = "100px";
-                document.querySelector(".date-icon").style.backgroundImage = `${backgroundImage}`;
-                document.querySelector(".newDateValue").textContent = "";
-                userSelect = "undefined";
-                newPriorityValue.textContent = "Priority";
-                newPriorityValue.style.color = "black";
-                taskDialog.close()
+                cancelButton.click();
             }
     })
 
@@ -178,7 +166,7 @@ class ProjectInfo {
     tableOfTasks.appendChild(tbody);
     projectViewport.appendChild(tableOfTasks);
     AllTasks.renderAllTasks(project);
-}
+ }
 
 }
 export default ProjectInfo;
