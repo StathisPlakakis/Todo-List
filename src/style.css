@@ -238,7 +238,7 @@ body, h1, h2, h3, h4, p, li, form, input, div, fieldset, tr, th, td  {
 .max-chars2 {
     position: absolute;
     top: 32px;
-    right: 20px;
+    right: 12px;
 }
 
 .task-title{
@@ -262,7 +262,7 @@ body, h1, h2, h3, h4, p, li, form, input, div, fieldset, tr, th, td  {
 .max-chars3 {
     position: absolute;
     top: 190px;
-    right: 20px;
+    right: 12px;
 }
 
 .task-description {
