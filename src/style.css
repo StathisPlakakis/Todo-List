@@ -237,7 +237,7 @@ body, h1, h2, h3, h4, p, li, form, input, div, fieldset {
 .max-chars2 {
     position: absolute;
     top: 32px;
-    right: 35px;
+    right: 20px;
 }
 
 .task-title{
@@ -245,6 +245,9 @@ body, h1, h2, h3, h4, p, li, form, input, div, fieldset {
     border-radius: 10px;
     padding: 10px;
     outline: none;
+    margin-left: 60px;
+    margin-right: 60px;
+
 }
 
 .task-title::placeholder {
@@ -257,8 +260,8 @@ body, h1, h2, h3, h4, p, li, form, input, div, fieldset {
 
 .max-chars3 {
     position: absolute;
-    top: 172px;
-    right: 35px;
+    top: 190px;
+    right: 20px;
 }
 
 .task-description {
@@ -269,6 +272,8 @@ body, h1, h2, h3, h4, p, li, form, input, div, fieldset {
     font-family: "Plus Jakarta Sans", sans-serif;;
     border-radius: 10px;
     outline: none;
+    margin-left: 60px;
+    margin-right: 60px;
   }
 
 
