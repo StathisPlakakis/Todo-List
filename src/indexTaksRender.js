@@ -18,9 +18,53 @@ class AllTasks {
                                                     "rgb(255, 254, 248)" : 
                                                     "rgba(237, 237, 237, 1)"
                 })
-                // nextRow.addEventListener("click", () => {
-                //     console.log("hi");
-                // })                
+                nextRow.addEventListener("click", () => {
+                    const data = nextRow.children;
+                    const index = Number(data[0].textContent) - 1;
+                    const title = data[1].textContent;
+                    const description = data[2].textContent;
+                    const date = data[3].textContent;
+                    const priority = data[4].textContent;
+                    const taskDialog = document.querySelector(".newTaskDialog");
+
+                    taskDialog.showModal();
+                    const taskTitle = document.querySelector(".task-title");
+                    taskTitle.value =  title;
+                    const taskDescription = document.querySelector(".task-description");
+                    taskDescription.value = description;
+                    const taskDate = document.querySelector("#date");
+                    const newDateValue = document.querySelector(".newDateValue");
+                    const container1 = document.querySelector(".date-icon")
+                    taskDate.value = `${date}`;
+                    newDateValue.textContent = date;
+                    container1.style.width = "max-content";
+                    container1.style.backgroundImage = "none";
+                    const inputs = document.getElementsByName("Priority");
+                    for (let i = 0; i < 3; i++) {
+                        if (inputs[i].value === priority) {
+                            inputs[i].checked = true;
+                            ProjectInfo.userSelect = inputs[i].value;
+                        }
+                    }
+                    const newPriorityValue = document.querySelector(".newPriorityValue");
+                    if (priority === "low") {
+                        newPriorityValue.textContent = "";      
+                        newPriorityValue.style.color = "yellow";
+                        newPriorityValue.textContent += "Low";
+                    }else if (priority === "medium") {
+                        newPriorityValue.textContent = "";      
+                        newPriorityValue.style.color = "orange";
+                        newPriorityValue.textContent += "Medium";
+                    }else if (priority === "high") {
+                        newPriorityValue.textContent = "";      
+                        newPriorityValue.style.color = "red";
+                        newPriorityValue.textContent += "High";
+                    }
+
+
+
+                    
+                })                
                 const no = document.createElement("td");
                 no.textContent = `${index + 1}`;
                 nextRow.appendChild(no);

@@ -6,6 +6,9 @@ import backgroundImagee from './assets/calendar.svg';
 
 
 class ProjectInfo {
+
+    static userSelect = "undefined";
+
     static projectInfoRender (project) {
         const taskDialog = document.querySelector(".newTaskDialog");
         const projectViewport = document.querySelector(".project");
@@ -57,10 +60,12 @@ class ProjectInfo {
 
         const fieldset = document.querySelector("#options");
         const inputs = document.getElementsByName("Priority");
-        let userSelect = "undefined";
         const container = document.querySelector(".priority-icon")
         const newPriorityValue = document.querySelector(".newPriorityValue");
-       
+        
+
+        
+
         fieldset.addEventListener("click", () => {
             
             
@@ -68,26 +73,32 @@ class ProjectInfo {
                  
             for (let i = 0; i < 3; i++) {
                 if (inputs[i].checked) {
-                    userSelect = inputs[i].value;
+                    ProjectInfo.userSelect = inputs[i].value;
                 }
             }  
 
 
-            if (userSelect === "low") {
+            if (ProjectInfo.userSelect === "low") {
                 newPriorityValue.textContent = "";      
                 newPriorityValue.style.color = "yellow";
                 newPriorityValue.textContent += "Low";
-            }else if (userSelect === "medium") {
+            }else if (ProjectInfo.userSelect === "medium") {
                 newPriorityValue.textContent = "";      
                 newPriorityValue.style.color = "orange";
                 newPriorityValue.textContent += "Medium";
-            }else if (userSelect === "high") {
+            }else if (ProjectInfo.userSelect === "high") {
                 newPriorityValue.textContent = "";      
                 newPriorityValue.style.color = "red";
                 newPriorityValue.textContent += "High";
             }
 
     })
+
+    for (let i = 0; i < 3; i++) {
+        if (inputs[i].checked) {
+            ProjectInfo.userSelect = inputs[i].value;
+        }
+    }  
 
     const cancelButton = document.querySelector(".cancel-task");
     cancelButton.addEventListener("click", () => {
@@ -97,7 +108,7 @@ class ProjectInfo {
         document.querySelector(".date-icon").style.width = "100px";
         document.querySelector(".newDateValue").textContent = "";
         document.querySelector(".date-icon").style.backgroundImage = `url(${backgroundImagee})`;
-        userSelect = "undefined";
+        ProjectInfo.userSelect = "undefined";
         newPriorityValue.textContent = "Priority";
         newPriorityValue.style.color = "black";
         taskDialog.close();
@@ -108,14 +119,14 @@ class ProjectInfo {
         if (document.querySelector(".task-title").value !== "" &&
             document.querySelector(".task-description").value !== "" &&
             document.querySelector("#date").value !== "" &&
-            userSelect !== "undefined"
+            ProjectInfo.userSelect !== "undefined"
             ) {
                 e.preventDefault();
                 TaskFactory.createTask (
                     document.querySelector(".task-title").value,
                     document.querySelector(".task-description").value,
                     document.querySelector("#date").value,
-                    userSelect
+                    ProjectInfo.userSelect
                 );
                 Project.myProjects.forEach((project) => {
                     if (project.active) {
@@ -163,6 +174,7 @@ class ProjectInfo {
     projectViewport.appendChild(containerOfTable);
     AllTasks.renderAllTasks(project);
  }
+
 
 }
 export default ProjectInfo;
