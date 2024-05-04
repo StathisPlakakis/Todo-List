@@ -115,27 +115,7 @@ class ProjectInfo {
     })
 
     const submitButton = document.querySelector(".submit-task");
-    submitButton.addEventListener("click", (e) => { 
-        if (document.querySelector(".task-title").value !== "" &&
-            document.querySelector(".task-description").value !== "" &&
-            document.querySelector("#date").value !== "" &&
-            ProjectInfo.userSelect !== "undefined"
-            ) {
-                e.preventDefault();
-                TaskFactory.createTask (
-                    document.querySelector(".task-title").value,
-                    document.querySelector(".task-description").value,
-                    document.querySelector("#date").value,
-                    ProjectInfo.userSelect
-                );
-                Project.myProjects.forEach((project) => {
-                    if (project.active) {
-                        ProjectInfo.projectInfoRender(project);
-                    }
-                })               
-                cancelButton.click();
-            }
-    })
+    submitButton.addEventListener("click", ProjectInfo.sumbitFunction)
 
     const containerOfTable = document.createElement("div");
     containerOfTable.classList.add("containerOfTable");
@@ -175,6 +155,28 @@ class ProjectInfo {
     AllTasks.renderAllTasks(project);
  }
 
-
+    static sumbitFunction (e) {
+        
+            if (document.querySelector(".task-title").value !== "" &&
+                document.querySelector(".task-description").value !== "" &&
+                document.querySelector("#date").value !== "" &&
+                ProjectInfo.userSelect !== "undefined"
+                ) {
+                    e.preventDefault();
+                    TaskFactory.createTask (
+                        document.querySelector(".task-title").value,
+                        document.querySelector(".task-description").value,
+                        document.querySelector("#date").value,
+                        ProjectInfo.userSelect
+                    );
+                    Project.myProjects.forEach((project) => {
+                        if (project.active) {
+                            ProjectInfo.projectInfoRender(project);
+                        }
+                    })               
+                    document.querySelector(".cancel-task").click();
+                
+        }
+    }
 }
 export default ProjectInfo;
