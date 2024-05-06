@@ -112,10 +112,16 @@ class ProjectInfo {
         newPriorityValue.textContent = "Priority";
         newPriorityValue.style.color = "black";
         taskDialog.close();
+        const importantButtons = document.querySelector(".importantButtons");
+        const SaveButton = document.querySelector(".save-task");
+        if (SaveButton) {
+            importantButtons.removeChild(SaveButton);
+        }
+        
     })
 
     const submitButton = document.querySelector(".submit-task");
-    submitButton.addEventListener("click", ProjectInfo.sumbitFunction)
+    submitButton.addEventListener("click", ProjectInfo.sumbitFunction);
 
     const containerOfTable = document.createElement("div");
     containerOfTable.classList.add("containerOfTable");
@@ -175,6 +181,8 @@ class ProjectInfo {
                         }
                     })               
                     document.querySelector(".cancel-task").click();
+                    console.log("hi");
+
                 
         }
     }
