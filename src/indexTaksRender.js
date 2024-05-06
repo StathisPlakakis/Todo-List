@@ -93,10 +93,12 @@ class AllTasks {
                     importantButtons.appendChild(saveButton);
                     saveButton.addEventListener("click", AllTasks.saveFunction);
 
+
                     const deleteButton = document.createElement("button");
                     deleteButton.classList.add("delete-task");
                     deleteButton.setAttribute("title", "Delete this task")
                     importantButtons.insertBefore(deleteButton, saveButton);
+                    deleteButton.addEventListener("click", AllTasks.deleteFunction);
                         
                 })                
                 const no = document.createElement("td");
@@ -155,13 +157,19 @@ class AllTasks {
                             ProjectInfo.projectInfoRender(project);
                         }
                     }) 
-                    const importantButtons = document.querySelector(".importantButtons");
-                    const submitButton = document.querySelector(".submit-task");
-                    submitButton.style.display = "inline-block";
-                    const SaveButton = document.querySelector(".save-task");
-                    importantButtons.removeChild(SaveButton);
                     document.querySelector(".cancel-task").click();
                 }
+    }
+
+    static deleteFunction (e) {
+        e.preventDefault();
+        Project.myProjects.forEach((project) => {
+            if (project.active) {
+                project.tasks.splice(AllTasks.indexxx, 1);
+                ProjectInfo.projectInfoRender(project);
+            }
+        })  
+        document.querySelector(".cancel-task").click();
     }
 }
 
