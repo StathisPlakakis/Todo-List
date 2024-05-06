@@ -445,6 +445,25 @@ body, h1, h2, h3, h4, p, li, form, input, div, fieldset, tr, th, td  {
     background-color: var(--submit-button-hover);
 }
 
+.delete-task {
+    width: 100px;
+    justify-self: center;
+    font-size: 2rem;
+    border-radius: 10px;
+    background-color: white;
+    background-image: url("./assets/del.svg");
+    background-size: contain;
+    background-position:  center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    padding: 20px;
+}
+
+.delete-task:hover {
+    background-color: var(--side-bar-background);
+}
+
+
 div.containerOfTable {
     width: 90%;
     display: grid;

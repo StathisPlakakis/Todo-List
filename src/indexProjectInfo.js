@@ -112,10 +112,15 @@ class ProjectInfo {
         newPriorityValue.textContent = "Priority";
         newPriorityValue.style.color = "black";
         taskDialog.close();
+
+        document.querySelector(".submit-task").style.display = "inline-block";
         const importantButtons = document.querySelector(".importantButtons");
         const SaveButton = document.querySelector(".save-task");
+        const deleteButton = document.querySelector(".delete-task");
+
         if (SaveButton) {
             importantButtons.removeChild(SaveButton);
+            importantButtons.removeChild(deleteButton);
         }
         
     })

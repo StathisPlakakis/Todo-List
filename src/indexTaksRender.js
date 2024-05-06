@@ -92,6 +92,11 @@ class AllTasks {
                     saveButton.textContent = "Save"
                     importantButtons.appendChild(saveButton);
                     saveButton.addEventListener("click", AllTasks.saveFunction);
+
+                    const deleteButton = document.createElement("button");
+                    deleteButton.classList.add("delete-task");
+                    deleteButton.setAttribute("title", "Delete this task")
+                    importantButtons.insertBefore(deleteButton, saveButton);
                         
                 })                
                 const no = document.createElement("td");
