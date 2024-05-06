@@ -3,6 +3,7 @@ import TaskFactory from './indexTaskFactory';
 import AllTasks from './indexTaksRender';
 import Project from './indexProject';
 import backgroundImagee from './assets/calendar.svg';
+import AllProjects from './indexProjectsRender';
 
 
 class ProjectInfo {
@@ -14,10 +15,25 @@ class ProjectInfo {
         const projectViewport = document.querySelector(".project");
         projectViewport.innerHTML = "";
         projectViewport.appendChild(taskDialog);
+
+
+
+        const heading = document.createElement("div");
+        heading.classList.add("project-heading");
+
         const title = document.createElement("div");
         title.classList.add("projectInfoTitle");
         title.textContent = project.title;
-        projectViewport.appendChild(title);
+        heading.appendChild(title);
+
+        const deleteProject = document.createElement("button");
+        deleteProject.classList.add("delete-project");
+        deleteProject.textContent ="Delete Project";
+        deleteProject.addEventListener("click", ProjectInfo.deleteProjectFunction);
+        heading.appendChild(deleteProject);
+
+        projectViewport.appendChild(heading);
+
         const addNewTask = document.createElement("button");
         addNewTask.textContent = "Add new Task";
         addNewTask.classList.add("create-task");
@@ -190,6 +206,20 @@ class ProjectInfo {
 
                 
         }
+    }
+
+    static deleteProjectFunction (e) {
+        e.preventDefault();
+        for (let i = 0; i < Project.myProjects.length; i++) {
+            if (Project.myProjects[i].active) {
+                Project.myProjects.splice(i, 1);
+            }
+        }
+        const taskDialog = document.querySelector(".newTaskDialog");
+        const projectViewport = document.querySelector(".project");
+        projectViewport.innerHTML = "";
+        projectViewport.appendChild(taskDialog);
+        AllProjects.renderAllProjects();
     }
 }
 export default ProjectInfo;
