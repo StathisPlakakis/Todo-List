@@ -1,4 +1,3 @@
-import Project from "./indexProject";
 import ProjectInfo from "./indexProjectInfo";
 import AllProjects from "./indexProjectsRender";
 
@@ -130,7 +129,6 @@ class AllTasks {
                     for (let i = 0; i < projects.length; i++) {
                         if (projects[i].active) {
                             projects[i].tasks[index].status = !projects[i].tasks[index].status;
-                            Project.myProjects[i].tasks[index].status = !Project.myProjects[i].tasks[index].status
                         }
                     }
                     AllProjects.saveProjectsLocal(projects)
@@ -152,17 +150,22 @@ class AllTasks {
                 ProjectInfo.userSelect !== "undefined"
                 ) {
                     e.preventDefault();
-                    Project.myProjects.forEach((project) => {
+                    const projects = AllProjects.getProjectsLocal();
+                    projects.forEach((project) => {
                         if (project.active) {
                             project.tasks[AllTasks.indexxx].title = document.querySelector(".task-title").value;
+                            
                             project.tasks[AllTasks.indexxx].description = document.querySelector(".task-description").value;
+                            
                             project.tasks[AllTasks.indexxx].dueDate = document.querySelector("#date").value;
+                            
                             const inputs = document.getElementsByName("Priority");
                             for (let i = 0; i < 3; i++) {
                                 if (inputs[i].checked) {
                                     project.tasks[AllTasks.indexxx].priority = inputs[i].value;
                                 }
                             }
+                            AllProjects.saveProjectsLocal(projects);
                             ProjectInfo.projectInfoRender(project);
                         }
                     }) 
@@ -172,9 +175,11 @@ class AllTasks {
 
     static deleteFunction (e) {
         e.preventDefault();
-        Project.myProjects.forEach((project) => {
+        const projects = AllProjects.getProjectsLocal();
+        projects.forEach((project) => {
             if (project.active) {
                 project.tasks.splice(AllTasks.indexxx, 1);
+                AllProjects.saveProjectsLocal(projects);
                 ProjectInfo.projectInfoRender(project);
             }
         })  

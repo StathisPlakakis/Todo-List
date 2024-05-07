@@ -29,9 +29,6 @@ submit.addEventListener("click", (e) => {
     if (projectInput.value.length > 0) {
         e.preventDefault();
         ProjectFactory.createProject(projectInput.value);
-        const projects = AllProjects.getProjectsLocal();
-        projects.push(Project.myProjects[Project.myProjects.length - 1]);
-        AllProjects.saveProjectsLocal(projects);
         AllProjects.newProject();
         AllProjects.renderAllProjects();
         maxLength.textContent = "0 / 50";
@@ -42,7 +39,3 @@ submit.addEventListener("click", (e) => {
 }
 )
 AllProjects.renderAllProjects();
-const projects = AllProjects.getProjectsLocal();
-projects.forEach(project => {
-    Project.myProjects.push(project);
-});

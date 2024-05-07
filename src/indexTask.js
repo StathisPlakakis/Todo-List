@@ -1,5 +1,4 @@
-import Project from "./indexProject";
-
+import AllProjects from "./indexProjectsRender";
 class Task {
     constructor (title, description, dueDate, priority) {
         this.title = title;
@@ -7,11 +6,14 @@ class Task {
         this.dueDate = dueDate;
         this.priority = priority;
         this.status = false;
-        Project.myProjects.forEach((project) => {
+        const projects = AllProjects.getProjectsLocal();
+        projects.forEach((project) => {
             if (project.active) {
                 project.tasks.push(this);
             }
         })
+
+        AllProjects.saveProjectsLocal(projects);
     }
 }
 

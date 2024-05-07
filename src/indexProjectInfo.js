@@ -1,7 +1,6 @@
 import { format } from 'date-fns';
 import TaskFactory from './indexTaskFactory';
 import AllTasks from './indexTaksRender';
-import Project from './indexProject';
 import backgroundImagee from './assets/calendar.svg';
 import AllProjects from './indexProjectsRender';
 
@@ -196,22 +195,15 @@ class ProjectInfo {
                         document.querySelector("#date").value,
                         ProjectInfo.userSelect
                     );
+
                     const projects = AllProjects.getProjectsLocal();
-                    for (let i = 0; i < projects.length; i++) {
-                        if (projects[i].active) {
-                            projects[i].tasks.push(Project.myProjects[i].tasks[Project.myProjects[i].tasks.length - 1])
-                        }
-                    }
-                    AllProjects.saveProjectsLocal(projects);
                     projects.forEach((project) => {
                         if (project.active) {
                             ProjectInfo.projectInfoRender(project);
                         }
                     })
      
-                    document.querySelector(".cancel-task").click();
-
-                
+                    document.querySelector(".cancel-task").click();            
         }
     }
 

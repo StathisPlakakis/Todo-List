@@ -1,4 +1,3 @@
-import Project from "./indexProject";
 import ProjectInfo from "./indexProjectInfo";;
 
 
@@ -17,26 +16,21 @@ class AllProjects {
         projectElement.textContent = project.title;
         projectElement.setAttribute("index", index);
         projectElement.classList.add("project-sidebar");
-        projectElement.addEventListener("click", (e) => {
+        projectElement.addEventListener("click", () => {
+            const projects = AllProjects.getProjectsLocal();
             projects.forEach((project) => {
                 project.active = false;
             })
-            Project.myProjects.forEach(project => {
-                project.active = false;
-            })
-            const position = e.target.getAttribute("index");
-            projects[position].active = true;
-            Project.myProjects[position].active = true;
+            projects[index].active = true;
             AllProjects.saveProjectsLocal(projects);
             AllProjects.renderAllProjects();
-            ProjectInfo.projectInfoRender(projects[position]);
         })
         allProjects.appendChild(projectElement);
     })
     }
 
     static newProject () {
-        let projects = AllProjects.getProjectsLocal();
+        const projects = AllProjects.getProjectsLocal();
         projects.forEach((project) => {
             project.active = false;
         })
@@ -46,14 +40,32 @@ class AllProjects {
         ProjectInfo.projectInfoRender(projects[projects.length - 1]);
     }
 
-    static saveProjectsLocal (projects) {
-        localStorage.setItem("projects", JSON.stringify(projects));
-    }
 
-    static getProjectsLocal () {
-        const projects = localStorage.getItem("projects");
-        return projects ? JSON.parse(projects) : [];
+    static saveProjectsLocal(projects) {
+        if (Array.isArray(projects)) {
+            localStorage.setItem("projects", JSON.stringify(projects)); 
+        } else {
+            console.warn("Attempted to save invalid projects data to localStorage");
+        }
     }
+    
+
+
+    static getProjectsLocal() {
+        const projects = localStorage.getItem("projects");
+        
+        if (projects) {
+            try {
+                return JSON.parse(projects); 
+            } catch (e) {
+                console.error("Error parsing projects from localStorage:", e);
+                return []; 
+            }
+        } else {
+            return []; 
+        }
+    }
+    
 }
 
 export default AllProjects;
