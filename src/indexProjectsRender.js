@@ -5,23 +5,25 @@ import ProjectInfo from "./indexProjectInfo";;
 class AllProjects {
 
     static renderAllProjects () {
-        
+        const projects = AllProjects.getProjectsLocal();
         const allProjects = document.querySelector(".project-list");
         allProjects.innerHTML = "";
-        Project.myProjects.forEach((project, index) => {
+        projects.forEach((project, index) => {
         const projectElement = document.createElement("div");
         if (project.active) {
+            ProjectInfo.projectInfoRender(project);
             projectElement.style.backgroundColor = "rgb(214, 213, 213)";
         }
         projectElement.textContent = project.title;
         projectElement.setAttribute("index", index);
         projectElement.classList.add("project-sidebar");
         projectElement.addEventListener("click", (e) => {
-            Project.myProjects.forEach((project) => {
+            projects.forEach((project) => {
                 project.active = false;
             })
             const position = e.target.getAttribute("index");
-            Project.myProjects[position].active = true;
+            projects[position].active = true;
+            AllProjects.saveProjectsLocal(projects);
             AllProjects.renderAllProjects();
             ProjectInfo.projectInfoRender(project);
         })
@@ -30,11 +32,23 @@ class AllProjects {
     }
 
     static newProject () {
-        Project.myProjects.forEach((project) => {
+        let projects = AllProjects.getProjectsLocal();
+        projects.forEach((project) => {
             project.active = false;
         })
-        Project.myProjects[Project.myProjects.length - 1]. active = true;
-        ProjectInfo.projectInfoRender(Project.myProjects[Project.myProjects.length - 1]);
+        projects[projects.length - 1].active = true;
+        AllProjects.saveProjectsLocal(projects);
+        AllProjects.renderAllProjects();
+        ProjectInfo.projectInfoRender(projects[projects.length - 1]);
+    }
+
+    static saveProjectsLocal (projects) {
+        localStorage.setItem("projects", JSON.stringify(projects));
+    }
+
+    static getProjectsLocal () {
+        const projects = localStorage.getItem("projects");
+        return projects ? JSON.parse(projects) : [];
     }
 }
 
