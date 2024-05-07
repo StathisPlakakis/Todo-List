@@ -21,11 +21,15 @@ class AllProjects {
             projects.forEach((project) => {
                 project.active = false;
             })
+            Project.myProjects.forEach(project => {
+                project.active = false;
+            })
             const position = e.target.getAttribute("index");
             projects[position].active = true;
+            Project.myProjects[position].active = true;
             AllProjects.saveProjectsLocal(projects);
             AllProjects.renderAllProjects();
-            ProjectInfo.projectInfoRender(project);
+            ProjectInfo.projectInfoRender(projects[position]);
         })
         allProjects.appendChild(projectElement);
     })

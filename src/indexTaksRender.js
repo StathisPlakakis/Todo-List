@@ -1,5 +1,6 @@
 import Project from "./indexProject";
 import ProjectInfo from "./indexProjectInfo";
+import AllProjects from "./indexProjectsRender";
 
 
 class AllTasks {
@@ -10,6 +11,7 @@ class AllTasks {
     static description = "";
     static date = "";
     static priority = "";
+
      
 
     
@@ -124,8 +126,15 @@ class AllTasks {
                 status.style.cursor = "pointer";
                 status.addEventListener("click", (e) => {
                     e.stopPropagation();
-                    task.status = !task.status;
-                    Project.myProjects.forEach((project) => {
+                    const projects = AllProjects.getProjectsLocal();
+                    for (let i = 0; i < projects.length; i++) {
+                        if (projects[i].active) {
+                            projects[i].tasks[index].status = !projects[i].tasks[index].status;
+                            Project.myProjects[i].tasks[index].status = !Project.myProjects[i].tasks[index].status
+                        }
+                    }
+                    AllProjects.saveProjectsLocal(projects)
+                    projects.forEach((project) => {
                         if (project.active) {
                             ProjectInfo.projectInfoRender(project);
                         }

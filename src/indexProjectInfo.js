@@ -196,13 +196,20 @@ class ProjectInfo {
                         document.querySelector("#date").value,
                         ProjectInfo.userSelect
                     );
-                    Project.myProjects.forEach((project) => {
+                    const projects = AllProjects.getProjectsLocal();
+                    for (let i = 0; i < projects.length; i++) {
+                        if (projects[i].active) {
+                            projects[i].tasks.push(Project.myProjects[i].tasks[Project.myProjects[i].tasks.length - 1])
+                        }
+                    }
+                    AllProjects.saveProjectsLocal(projects);
+                    projects.forEach((project) => {
                         if (project.active) {
                             ProjectInfo.projectInfoRender(project);
                         }
-                    })               
+                    })
+     
                     document.querySelector(".cancel-task").click();
-                    console.log("hi");
 
                 
         }
@@ -210,15 +217,17 @@ class ProjectInfo {
 
     static deleteProjectFunction (e) {
         e.preventDefault();
-        for (let i = 0; i < Project.myProjects.length; i++) {
-            if (Project.myProjects[i].active) {
-                Project.myProjects.splice(i, 1);
+        const projects = AllProjects.getProjectsLocal();
+        for (let i = 0; i < projects.length; i++) {
+            if (projects[i].active) {
+                projects.splice(i, 1);
             }
         }
         const taskDialog = document.querySelector(".newTaskDialog");
         const projectViewport = document.querySelector(".project");
         projectViewport.innerHTML = "";
         projectViewport.appendChild(taskDialog);
+        AllProjects.saveProjectsLocal(projects);
         AllProjects.renderAllProjects();
     }
 }

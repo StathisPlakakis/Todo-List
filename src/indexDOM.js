@@ -42,5 +42,7 @@ submit.addEventListener("click", (e) => {
 }
 )
 AllProjects.renderAllProjects();
-
-
+const projects = AllProjects.getProjectsLocal();
+projects.forEach(project => {
+    Project.myProjects.push(project);
+});
